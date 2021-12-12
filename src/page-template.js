@@ -1,19 +1,9 @@
-function generateEmployeeCard(employees){
-    for(let i = 0; i < employees.length; i++) {
-        if(employees[i].getRole() === 'Manager') {
-        generateManagerCard(employees[i]);
-        }
-    }
-
-}
-
 function generateManagerCard(manager) {
-    return console.log(manager);
     return `
-    <div class="card col-4">
+        <div class="card col-4">
             <h5 class="card-title text-center pt-2">${manager.name}</h5>
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">${manager.gerRole()}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted text-center">${manager.getRole()}</h6>
                         <div class="card-body bg-secondary">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">ID: ${manager.id}</li>
@@ -22,20 +12,57 @@ function generateManagerCard(manager) {
                             </ul>
                         </div>
                 </div>
-        </div>
+         </div>
     `
 }
 
 function generateEngineerCard(engineer) {
-    return console.log(engineer);
+    return `
+    <div class="card col-4">
+            <h5 class="card-title text-center pt-2">${engineer.name}</h5>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted text-center">${engineer.getRole()}</h6>
+                        <div class="card-body bg-secondary">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">ID: ${engineer.id}</li>
+                                <li class="list-group-item">Email: ${engineer.email}</li>
+                                <li class="list-group-item">GitHub: <a href="www.github.com/${engineer.engineerGithub}">${engineer.engineerGithub}</a></li>
+                            </ul>
+                        </div>
+                </div>
+        </div>
+    `
 }
 
 function generateInternCard(intern) {
-    return console.log(intern);
+    return `
+    <div class="card col-4">
+            <h5 class="card-title text-center pt-2">${intern.name}</h5>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted text-center">${intern.getRole()}</h6>
+                        <div class="card-body bg-secondary">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">ID: ${intern.id}</li>
+                                <li class="list-group-item">Email: ${intern.email}</li>
+                                <li class="list-group-item">School: ${intern.internSchool}</li>
+                            </ul>
+                        </div>
+                </div>
+        </div>
+    `
 }
 
 module.exports = teamInfo => {
-
+    let team = [];
+    teamInfo.forEach(employee => {
+        if(employee.getRole() === 'Manager') {
+            team += generateManagerCard(employee)
+        } if(employee.getRole() === 'Engineer') {
+            team += generateEngineerCard(employee)
+        } if(employee.getRole() === 'Intern') {
+            team += generateInternCard(employee)
+        }
+    })
     return console.log(`
     <!DOCTYPE html>
     <html lang="en">
@@ -51,7 +78,7 @@ module.exports = teamInfo => {
             <h1 class="bg-primary text-light d-flex justify-content-center pb-2">My Team</h1>
         </header>
         <main class="container">
-            ${generateEmployeeCard(teamInfo)}
+            ${team}
         </main>
     </body>
     </html>
