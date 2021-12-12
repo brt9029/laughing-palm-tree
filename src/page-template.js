@@ -1,13 +1,13 @@
 function generateManagerCard(manager) {
     return `
-        <div class="card col-4">
-            <h5 class="card-title text-center pt-2">${manager.name}</h5>
+        <div class="card col-3 m-3 bg-success">
+            <h5 class="card-title text-center pt-2 text-white bg-primary">${manager.name}</h5>
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">${manager.getRole()}</h6>
+                    <h6 class="card-subtitle mb-2 text-white text-center">${manager.getRole()}</h6>
                         <div class="card-body bg-secondary">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">ID: ${manager.id}</li>
-                                <li class="list-group-item">Email: ${manager.email}</li>
+                                <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
                                 <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
                             </ul>
                         </div>
@@ -18,14 +18,14 @@ function generateManagerCard(manager) {
 
 function generateEngineerCard(engineer) {
     return `
-    <div class="card col-4">
-            <h5 class="card-title text-center pt-2">${engineer.name}</h5>
+    <div class="card col-3 m-3 bg-warning">
+            <h5 class="card-title text-center pt-2 text-white bg-secondary">${engineer.name}</h5>
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">${engineer.getRole()}</h6>
+                    <h6 class="card-subtitle mb-2 text-white text-center">${engineer.getRole()}</h6>
                         <div class="card-body bg-secondary">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">ID: ${engineer.id}</li>
-                                <li class="list-group-item">Email: ${engineer.email}</li>
+                                <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
                                 <li class="list-group-item">GitHub: <a href="www.github.com/${engineer.engineerGithub}">${engineer.engineerGithub}</a></li>
                             </ul>
                         </div>
@@ -36,14 +36,14 @@ function generateEngineerCard(engineer) {
 
 function generateInternCard(intern) {
     return `
-    <div class="card col-4">
+    <div class="card col-3 m-3 bg-info">
             <h5 class="card-title text-center pt-2">${intern.name}</h5>
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">${intern.getRole()}</h6>
+                    <h6 class="card-subtitle mb-2 text-white text-center">${intern.getRole()}</h6>
                         <div class="card-body bg-secondary">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">ID: ${intern.id}</li>
-                                <li class="list-group-item">Email: ${intern.email}</li>
+                                <li class="list-group-item">Email: <a href="mailto:${intern.email}>${intern.email}</a></li>
                                 <li class="list-group-item">School: ${intern.internSchool}</li>
                             </ul>
                         </div>
@@ -63,7 +63,7 @@ module.exports = teamInfo => {
             team += generateInternCard(employee)
         }
     })
-    return console.log(`
+    return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -77,10 +77,10 @@ module.exports = teamInfo => {
         <header>
             <h1 class="bg-primary text-light d-flex justify-content-center pb-2">My Team</h1>
         </header>
-        <main class="container">
+        <main class="row pt-3 m-3">
             ${team}
         </main>
     </body>
     </html>
-    `)
+    `
 }

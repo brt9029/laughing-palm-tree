@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs')
 const generateEmployeeCard = require('./src/page-template');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -126,7 +127,16 @@ function addMore() {
         })
 }
 
+function generateFile(pageHTML) {
+    fs.writeFile('./dist/index.html', pageHTML, err => {
+        if(err) console.log(err);
+    })
+}
+
 initialPrompt()
     .then((employeeInfo) => {
         return generateEmployeeCard(employeeInfo);
+    })
+    .then(pageHTML => {
+        return generateFile(pageHTML);
     })
