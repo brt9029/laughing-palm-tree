@@ -1,6 +1,6 @@
 function generateManagerCard(manager) {
     return `
-        <div class="card col-3 m-3 bg-success">
+        <div class="card col-3 m-3 bg-danger">
             <h5 class="card-title text-center pt-2 text-white bg-primary">${manager.name}</h5>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-white text-center">${manager.getRole()}</h6>
@@ -36,7 +36,7 @@ function generateEngineerCard(engineer) {
 
 function generateInternCard(intern) {
     return `
-    <div class="card col-3 m-3 bg-info">
+    <div class="card col-3 m-3 bg-success">
             <h5 class="card-title text-center pt-2">${intern.name}</h5>
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-white text-center">${intern.getRole()}</h6>
