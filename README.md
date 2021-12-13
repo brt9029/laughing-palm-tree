@@ -8,7 +8,7 @@
 - Start the app with ```node index```
 
 ## Usage
-- Enter information as prompted:
+- Enter information once prompted:
 
 ![image](https://user-images.githubusercontent.com/26530136/145736263-3cbdb92f-cd8c-40aa-8a95-e8596947baf1.png)
 - Enter additional team members as needed:
