@@ -15,6 +15,9 @@
 
 ![image](https://user-images.githubusercontent.com/26530136/145736285-5a28dd82-97ab-42f5-99f0-7195abcbcc86.png)
 - index.html file will be generated inside of ```dist``` folder
+
+![image](https://user-images.githubusercontent.com/26530136/145736380-a7f78ba7-89f2-45a7-9451-2d8323fb0f1a.png)
+
 - Video Walkthrough: https://watch.screencastify.com/v/Gv076l828J91aQ4hoBJW
 
 ## Credits
