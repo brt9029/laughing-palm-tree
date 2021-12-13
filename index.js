@@ -63,7 +63,7 @@ function engineerQuestions() {
             }
         ])
         .then(data => {
-            const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub)
+            const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.role, data.engineerGithub)
             employees.push(engineer);
             console.log('Engineer added!');
             return addMore();
@@ -95,7 +95,7 @@ function internQuestions() {
             }
         ])
         .then(data => {
-            const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool)
+            const intern = new Intern(data.internName, data.internId, data.internEmail, data.role, data.internSchool)
             employees.push(intern);
             console.log("Intern added!");
             return addMore();

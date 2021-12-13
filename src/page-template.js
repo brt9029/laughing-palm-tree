@@ -26,7 +26,7 @@ function generateEngineerCard(engineer) {
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">ID: ${engineer.id}</li>
                                 <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
-                                <li class="list-group-item">GitHub: <a href="www.github.com/${engineer.engineerGithub}">${engineer.engineerGithub}</a></li>
+                                <li class="list-group-item">GitHub: <a href="${engineer.getGithub()}">${engineer.engineerGithub}</a></li>
                             </ul>
                         </div>
                 </div>
@@ -44,7 +44,7 @@ function generateInternCard(intern) {
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">ID: ${intern.id}</li>
                                 <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
-                                <li class="list-group-item">School: ${intern.internSchool}</li>
+                                <li class="list-group-item">School: ${intern.getSchool()}</li>
                             </ul>
                         </div>
                 </div>
@@ -54,6 +54,7 @@ function generateInternCard(intern) {
 
 module.exports = teamInfo => {
     let team = [];
+    
     teamInfo.forEach(employee => {
         if(employee.getRole() === 'Manager') {
             team += generateManagerCard(employee)
@@ -63,6 +64,7 @@ module.exports = teamInfo => {
             team += generateInternCard(employee)
         }
     })
+    
     return `
     <!DOCTYPE html>
     <html lang="en">
